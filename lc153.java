@@ -19,14 +19,12 @@ public class lc153 {
         while (left <= right) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < nums[right]) {
-                if (nums[mid] < smallest) {
+                if (nums[mid] < smallest)
                     smallest = nums[mid];
-                }
                 right = mid - 1;
             } else {
-                if (nums[right] < smallest) {
+                if (nums[right] < smallest)
                     smallest = nums[mid];
-                }
                 left = mid + 1;
             }
         }
@@ -44,6 +42,5 @@ public class lc153 {
         System.out.printf("Case 1: %d %b\n", solution.findMin(nums1), (solution.findMin(nums1) == expected1));
         System.out.printf("Case 2: %d %b\n", solution.findMin(nums2), (solution.findMin(nums2) == expected2));
         System.out.printf("Case 3: %d %b\n", solution.findMin(nums3), (solution.findMin(nums3) == expected3));
-
     }
 }
