@@ -29,21 +29,18 @@ This is my second and successful solution.
 This was where my intuition initially took me, but I tried to get fancy and did the first attempt above.
 '''
 import heapq
-    
+
 class Solution:
-    def topKFrequent(self, nums: list[int], k: int) -> list[int]:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         counts = {}
-        # O(n)
         for i in range(len(nums)):
-            counts[nums[i]] = 1 + counts.get(nums[i], 0)
-        # O(n)
-        heap = []
+            if not counts.get(nums[i]):
+                counts[nums[i]] = 0
+            counts[nums[i]] += 1
+        pq = []
         for key in counts:
-            heapq.heappush(heap, (counts[key] * -1, key))
-        ans = []
-        for i in range(k):
-            ans.append(heapq.heappop(heap)[1])
-        return ans
+            heapq.heappush(pq, (-1*counts[key], key))
+        return [heapq.heappop(pq)[1] for i in range(k)]
     
 solution = Solution()
 
