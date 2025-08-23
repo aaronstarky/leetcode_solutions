@@ -26,3 +26,28 @@ class Solution(object):
             return False
         # after all this, if we made it, return True
         return True
+    
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if len(s) % 2 != 0:
+            return False
+        ps = []
+        for i in range(len(s)):
+            if s[i] == '(' or s[i] == '{' or s[i] == '[':
+                ps.append(s[i])
+            else:
+                if len(ps) == 0:
+                    return False
+                start = ps.pop()
+                if start == '(' and s[i] == ')':
+                    continue
+                elif start == '{' and s[i] == '}':
+                    continue
+                elif start == '[' and s[i] == ']':
+                    continue
+                else:
+                    return False
+        if len(ps) > 0:
+            return False
+        return True
+                
