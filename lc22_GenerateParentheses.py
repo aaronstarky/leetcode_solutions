@@ -1,3 +1,11 @@
+'''
+For solving this problem, it was crucial to think about
+the parentheses generation as a depth first search
+traversal. Beyond that, it was also important to think
+about the traversal as walking through a maze, with each
+opening parentheses being a left turn and each closing 
+being a right turn.
+'''
 class Solution:
     def generateParenthesis(self, n: int) -> list[str]:
         res = []
